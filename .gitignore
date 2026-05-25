@@ -1,0 +1,33 @@
+
+database.db
+
+# Ambiente virtual
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Poetry
+poetry.lock   # ← esse é opcional, tem debate sobre isso
+
+# Variáveis de ambiente (NUNCA sobe isso)
+.env
+.env.*
+
+# Banco de dados local
+*.db
+*.sqlite3
+
+# IDEs
+.vscode/
+.idea/
+
+# Pytest
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Build
+dist/
+*.egg-info/
+

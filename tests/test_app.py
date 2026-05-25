@@ -51,7 +51,7 @@ def test_read_users():
 
 def test_delete_user():
     client = TestClient(app)
-    response = client.delete('/users/1')
+    response = client.delete("/users/1")
 
     assert response.status_code == HTTPStatus.OK
-    assert response.json() == {'message': 'User deleted'}
+    assert response.json() == {"message": "User deleted"}
