@@ -8,7 +8,7 @@ __pycache__/
 *.pyo
 
 # Poetry
-poetry.lock   # ← esse é opcional, tem debate sobre isso
+poetry.lock
 
 # Variáveis de ambiente (NUNCA sobe isso)
 .env
@@ -30,4 +30,6 @@ htmlcov/
 # Build
 dist/
 *.egg-info/
+
+pyproject.toml
 
