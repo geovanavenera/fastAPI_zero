@@ -31,5 +31,5 @@ htmlcov/
 dist/
 *.egg-info/
 
-pyproject.toml
+
 
