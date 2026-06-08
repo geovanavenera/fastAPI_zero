@@ -3,36 +3,51 @@
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-7C6BBB?style=flat-square&logo=sqlalchemy&logoColor=white)
 ![Alembic](https://img.shields.io/badge/Alembic-F5A623?style=flat-square&logoColor=white)
 ![pytest](https://img.shields.io/badge/pytest-grey?style=flat-square&logo=pytest&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-em_breve-lightgrey?style=flat-square&logo=docker&logoColor=white)
 ![Poetry](https://img.shields.io/badge/Poetry-60A5FA?style=flat-square&logo=poetry&logoColor=white)
 
-# fast_zero 🚀
+# fastapi_zero 🚀
 
-Gerenciador de tarefas com autenticação de usuários e operações CRUD completas, construído com FastAPI. Projeto desenvolvido como parte do curso FastAPI do Zero - Dunossauro.
-> 🚧 Em desenvolvimento — novas funcionalidades sendo adicionadas conforme o curso avança.
+Gerenciador de tarefas com autenticação de usuários e operações CRUD completas, construído com FastAPI. Projeto desenvolvido como parte do curso [FastAPI do Zero - Dunossauro](https://fastapidozero.dunossauro.com).
 
----
-
-## Stack
-
-| Camada | Tecnologia |
-|---|---|
-| Framework | FastAPI |
-| ORM | SQLAlchemy |
-| Migrations | Alembic |
-| Validação | Pydantic |
-| Banco de dados | SQLite |
-| Gerenciador de pacotes | Poetry |
-| Testes | pytest + coverage |
+> 🚧 **Em desenvolvimento** — novas funcionalidades sendo adicionadas conforme o curso avança.
 
 ---
 
-## Como rodar localmente
+## ✨ Funcionalidades
+
+- ✅ Cadastro e gerenciamento de usuários
+- ✅ Autenticação com JWT (Bearer Token)
+- ✅ Endpoints protegidos por autenticação
+- ✅ Operações CRUD completas
+- ✅ Testes automatizados com cobertura de código
+- 🔜 Gerenciamento de tarefas
+- 🔜 Containerização com Docker
+- 🔜 Deploy com PostgreSQL
+
+---
+
+## 🗂️ Stack
+
+| Camada              | Tecnologia              |
+|---------------------|-------------------------|
+| Framework           | FastAPI                 |
+| ORM                 | SQLAlchemy              |
+| Migrations          | Alembic                 |
+| Validação           | Pydantic                |
+| Banco de dados      | SQLite (PostgreSQL em breve) |
+| Autenticação        | JWT (PyJWT)             |
+| Gerenciador         | Poetry                  |
+| Testes              | pytest + coverage       |
+
+---
+
+## 🚀 Como rodar localmente
 
 ```bash
 # clone o repositório
-git clone https://github.com/geovanavenera/fast_zero
-cd fast_zero
+git clone https://github.com/geovanavenera/fastAPI_zero
+cd fastAPI_zero
 
 # instale as dependências
 poetry install
@@ -47,41 +62,69 @@ cp .env.example .env
 alembic upgrade head
 
 # inicie o servidor
-fastapi dev fast_zero/app.py
+fastapi dev fastapi_zero/app.py
 ```
 
 ---
 
-## Variáveis de ambiente
+## ⚙️ Variáveis de ambiente
 
 Crie um arquivo `.env` na raiz do projeto:
 
 ```env
 DATABASE_URL="sqlite:///database.db"
+SECRET_KEY="sua-chave-secreta"
+ALGORITHM="HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES=30
 ```
 
 ---
 
-## Endpoints
+## 📡 Endpoints
+
+### Autenticação
+| Método | Rota     | Descrição          |
+|--------|----------|--------------------|
+| `POST` | `/token` | gerar access token |
 
 ### Usuários
-
-| Método | Rota | Descrição |
-|---|---|---|
-| `GET` | `/` | health check |
-| `POST` | `/users/` | criar usuário |
-| `GET` | `/users/` | listar usuários |
-| `PUT` | `/users/{id}` | atualizar usuário |
-| `DELETE` | `/users/{id}` | deletar usuário |
+| Método   | Rota           | Descrição          | Auth |
+|----------|----------------|--------------------|------|
+| `GET`    | `/`            | health check       | ❌   |
+| `POST`   | `/users/`      | criar usuário      | ❌   |
+| `GET`    | `/users/`      | listar usuários    | ❌   |
+| `PUT`    | `/users/{id}`  | atualizar usuário  | ✅   |
+| `DELETE` | `/users/{id}`  | deletar usuário    | ✅   |
 
 ---
 
-## Testes
+## 🧪 Testes
 
 ```bash
 task test
 ```
 
+Cobertura de código gerada automaticamente em `htmlcov/index.html`.
+
 ---
 
-Feito por [@geovanavenera](https://github.com/geovanavenera) 
+## 📁 Estrutura do projeto
+
+```
+fastAPI_zero/
+├── fastapi_zero/
+│   ├── app.py          # rotas e endpoints
+│   ├── models.py       # modelos do banco de dados
+│   ├── schemas.py      # schemas Pydantic
+│   ├── security.py     # autenticação JWT
+│   ├── database.py     # configuração do banco
+│   └── settings.py     # variáveis de ambiente
+├── migrations/         # Alembic migrations
+├── tests/              # testes automatizados
+├── pyproject.toml
+└── .env.example
+```
+
+---
+
+Feito por [@geovanavenera](https://github.com/geovanavenera)
