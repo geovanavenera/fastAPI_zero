@@ -113,7 +113,7 @@ Cobertura de código gerada automaticamente em `htmlcov/index.html`.
 ---
 
 ## 📁 Estrutura do projeto
-'''fastAPI_zero/
+```fastAPI_zero/
 ├── fastapi_zero/
 │   ├── app.py          # rotas e endpoints
 │   ├── models.py       # modelos do banco de dados
@@ -132,7 +132,8 @@ Cobertura de código gerada automaticamente em `htmlcov/index.html`.
     ├── test_users.py
     ├── test_security.py
 ├── pyproject.toml
-└── .env.example'''
+└── .env.example
+```
 ---
 
 Feito por [@geovanavenera](https://github.com/geovanavenera)
