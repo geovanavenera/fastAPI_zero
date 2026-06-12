@@ -115,25 +115,24 @@ Cobertura de código gerada automaticamente em `htmlcov/index.html`.
 ## 📁 Estrutura do projeto
 fastAPI_zero/
 ├── fastapi_zero/
-│   ├── app.py           # inicialização e registro dos routers
-│   ├── models.py        # modelos do banco de dados
-│   ├── schemas.py       # schemas Pydantic (incluindo FilterPage)
-│   ├── security.py      # autenticação JWT e hash de senha
-│   ├── database.py      # configuração do banco
-│   ├── settings.py      # variáveis de ambiente
-│   └── routers/
-│       ├── users.py     # endpoints de usuários
-│       └── auth.py      # endpoints de autenticação
-├── migrations/          # Alembic migrations
-├── tests/
-│   ├── conftest.py      # fixtures compartilhadas
-│   ├── test_app.py      # teste do health check
-│   ├── test_auth.py     # testes de autenticação
-│   ├── test_users.py    # testes de usuários
-│   └── test_security.py
+│   ├── app.py          # rotas e endpoints
+│   ├── models.py       # modelos do banco de dados
+│   ├── schemas.py      # schemas Pydantic
+│   ├── security.py     # autenticação JWT
+│   ├── database.py     # configuração do banco
+│   └── settings.py     # variáveis de ambiente
+├── routers/            # rotas e endpoints
+    ├── users.py
+    ├── auth.py
+├── migrations/         # Alembic migrations
+├── tests/              # testes automatizados
+    ├── conftest.py
+    ├── test_app.py
+    ├── test.auth.py
+    ├── test_users.py
+    ├── test_security.py
 ├── pyproject.toml
 └── .env.example
-
 ---
 
 Feito por [@geovanavenera](https://github.com/geovanavenera)
