@@ -72,3 +72,7 @@ inicial = "inicial"
 [tool.coverage.run]
 core = "ctrace"
 concurrency = ["thread", "greenlet"]
+
+
+[tool.typos.default]
+extend-ignore-identifiers-re = ["selectin"]
