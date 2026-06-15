@@ -21,6 +21,8 @@ Gerenciador de tarefas com autenticação de usuários e operações CRUD comple
 - ✅ Endpoints protegidos por autenticação
 - ✅ Operações CRUD completas
 - ✅ Testes automatizados com cobertura de código
+- ✅ Routers separados por domínio (users / auth)
+- ✅ Paginação com validação via Pydantic
 - 🔜 Gerenciamento de tarefas
 - 🔜 Containerização com Docker
 - 🔜 Deploy com PostgreSQL
@@ -29,16 +31,16 @@ Gerenciador de tarefas com autenticação de usuários e operações CRUD comple
 
 ## 🗂️ Stack
 
-| Camada              | Tecnologia              |
-|---------------------|-------------------------|
-| Framework           | FastAPI                 |
-| ORM                 | SQLAlchemy              |
-| Migrations          | Alembic                 |
-| Validação           | Pydantic                |
-| Banco de dados      | SQLite (PostgreSQL em breve) |
-| Autenticação        | JWT (PyJWT)             |
-| Gerenciador         | Poetry                  |
-| Testes              | pytest + coverage       |
+| Camada              | Tecnologia                        |
+|---------------------|-----------------------------------|
+| Framework           | FastAPI                           |
+| ORM                 | SQLAlchemy                        |
+| Migrations          | Alembic                           |
+| Validação           | Pydantic                          |
+| Banco de dados      | SQLite (PostgreSQL em breve)      |
+| Autenticação        | JWT (PyJWT)                       |
+| Gerenciador         | Poetry                            |
+| Testes              | pytest + coverage                 |
 
 ---
 
@@ -78,14 +80,16 @@ ALGORITHM="HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES=30
 ```
 
+> 💡 Gere uma `SECRET_KEY` segura com `python -c "import secrets; print(secrets.token_hex(32))"`
+
 ---
 
 ## 📡 Endpoints
 
 ### Autenticação
-| Método | Rota     | Descrição          |
-|--------|----------|--------------------|
-| `POST` | `/token` | gerar access token |
+| Método | Rota           | Descrição          |
+|--------|----------------|--------------------|
+| `POST` | `/auth/token`  | gerar access token |
 
 ### Usuários
 | Método   | Rota           | Descrição          | Auth |
@@ -109,9 +113,7 @@ Cobertura de código gerada automaticamente em `htmlcov/index.html`.
 ---
 
 ## 📁 Estrutura do projeto
-
-```
-fastAPI_zero/
+```fastAPI_zero/
 ├── fastapi_zero/
 │   ├── app.py          # rotas e endpoints
 │   ├── models.py       # modelos do banco de dados
@@ -119,12 +121,19 @@ fastAPI_zero/
 │   ├── security.py     # autenticação JWT
 │   ├── database.py     # configuração do banco
 │   └── settings.py     # variáveis de ambiente
+├── routers/            # rotas e endpoints
+    ├── users.py
+    ├── auth.py
 ├── migrations/         # Alembic migrations
 ├── tests/              # testes automatizados
+    ├── conftest.py
+    ├── test_app.py
+    ├── test.auth.py
+    ├── test_users.py
+    ├── test_security.py
 ├── pyproject.toml
 └── .env.example
 ```
-
 ---
 
 Feito por [@geovanavenera](https://github.com/geovanavenera)
